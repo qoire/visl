@@ -1,4 +1,4 @@
-package qdsl.visl;
+package qdsl.visl.Utils;
 
 import android.util.Log;
 
@@ -53,7 +53,7 @@ public class RestClient {
      * rest service and prints it's response to Android Log with
      * labels "Praeda".
      */
-    public static void connect(String url)
+    public static JSONObject connect(String url)
     {
         Log.i("Praeda", "connect executes");
         HttpClient httpclient = new DefaultHttpClient();
@@ -77,30 +77,11 @@ public class RestClient {
 
                 // A Simple JSON Response Read
                 InputStream instream = entity.getContent();
-                String result= convertStreamToString(instream);
-                Log.i("Praeda",result);
-
+                String result = convertStreamToString(instream);
                 // A Simple JSONObject Creation
-                JSONObject json=new JSONObject(result);
-                Log.i("Praeda","<jsonobject>\n"+json.toString()+"\n</jsonobject>");
-
-                // A Simple JSONObject Parsing
-                JSONArray nameArray=json.names();
-                JSONArray valArray=json.toJSONArray(nameArray);
-                for(int i=0;i<valArray.length();i++)
-                {
-                    Log.i("Praeda","<jsonname"+i+">\n"+nameArray.getString(i)+"\n</jsonname"+i+">\n"
-                            +"<jsonvalue"+i+">\n"+valArray.getString(i)+"\n</jsonvalue"+i+">");
-                }
-
-                // A Simple JSONObject Value Pushing
-                json.put("sample key", "sample value");
-                Log.i("Praeda","<jsonobject>\n"+json.toString()+"\n</jsonobject>");
-
-                // Closing the input stream will trigger connection release
-                instream.close();
+                JSONObject json = new JSONObject(result);
+                return json;
             }
-
 
         } catch (ClientProtocolException e) {
             // TODO Auto-generated catch block
@@ -115,5 +96,7 @@ public class RestClient {
             Log.i("Praeda","JSONException");
             e.printStackTrace();
         }
+
+        return null;
     }
 }

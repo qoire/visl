@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 mangaRetrieverTask = new AsyncTopRetrieverTask();
-                mangaRetrieverTask.execute();
+                mangaRetrieverTask.execute((int)0);
             }
         });
 
