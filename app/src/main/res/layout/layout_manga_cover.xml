@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mangaCover"
+            android:layout_alignParentTop="true"
+            android:longClickable="false"
+            android:src="@drawable/naruto_manga_cover_v25"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Naruto"
+            android:id="@+id/mangaText"
+            android:layout_below="@+id/mangaCover"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:elegantTextHeight="false"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:textColor="#ffff0b40" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="250"
+            android:id="@+id/textView"
+            android:layout_below="@+id/mangaText"
+            android:layout_alignRight="@+id/mangaText"
+            android:layout_alignEnd="@+id/mangaText"
+            android:paddingRight="10dp"
+            android:textColor="#ffa10728" />
+
+    </RelativeLayout>
+</RelativeLayout>
