@@ -20,10 +20,11 @@ public class MangaController {
         return mangaSeries;
     }
 
-    public void addManga(String imgURL, String name) {
+    public void addManga(String imgURL, String name, String id) {
         MangaSeries tempSeries = new MangaSeries();
         tempSeries.title = name;
         tempSeries.image = imgURL;
+        tempSeries.id = id;
         mangaSeries.add(tempSeries);
 
         if (hasSeries == false) {

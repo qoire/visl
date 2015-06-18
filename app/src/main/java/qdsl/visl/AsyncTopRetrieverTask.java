@@ -52,8 +52,11 @@ public class AsyncTopRetrieverTask extends AsyncTask<Object, Void, Void> {
 
                 for (int i = 0; i < mangaJSONArray.length(); i++) {
                     JSONObject mangaTitle = mangaJSONArray.getJSONObject(i);
-                    mangaController.addManga(mangaTitle.getString("t"),
-                            mangaTitle.getString("im"));
+                    mangaController.addManga(
+                            mangaTitle.getString("t"),
+                            mangaTitle.getString("im"),
+                            mangaTitle.getString("h"),
+                            mangaTitle.getString("a"));
                     Log.i("createMangaEdenSeries", mangaTitle.getString("t"));
                 }
             }
