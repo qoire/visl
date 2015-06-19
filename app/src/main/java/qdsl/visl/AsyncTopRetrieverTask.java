@@ -55,8 +55,7 @@ public class AsyncTopRetrieverTask extends AsyncTask<Object, Void, Void> {
                     mangaController.addManga(
                             mangaTitle.getString("t"),
                             mangaTitle.getString("im"),
-                            mangaTitle.getString("h"),
-                            mangaTitle.getString("a"));
+                            mangaTitle.getString("i"));
                     Log.i("createMangaEdenSeries", mangaTitle.getString("t"));
                 }
             }

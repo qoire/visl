@@ -31,4 +31,8 @@ public class MangaController {
             hasSeries = true;
         }
     }
+
+    public Boolean hasSeries() {
+        return hasSeries;
+    }
 }
