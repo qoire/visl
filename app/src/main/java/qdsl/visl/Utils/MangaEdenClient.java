@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.GpsStatus;
 import android.util.Log;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -40,7 +41,7 @@ public class MangaEdenClient {
                     public void onErrorResponse(VolleyError error) {
                         Log.d("loadMainJSON", error.toString());
                     }
-                }));
+                }).setRetryPolicy(new DefaultRetryPolicy(20*1000, 1, 1.0f)));
     }
 
     private MangaController createMangaEdenSeries(JSONObject in) {
@@ -53,7 +54,6 @@ public class MangaEdenClient {
             JSONArray mangaJSONArray = null;
             if (in != null) {
                 mangaJSONArray = in.getJSONArray("manga");
-
                 for (int i = 0; i < mangaJSONArray.length(); i++) {
                     JSONObject mangaTitle = mangaJSONArray.getJSONObject(i);
                     mangaController.addManga(
@@ -63,11 +63,9 @@ public class MangaEdenClient {
                     Log.i("createMangaEdenSeries", mangaTitle.getString("t"));
                 }
             }
-
         } catch (JSONException e){
             Log.d("createMangaEdenSeries", e.toString());
         }
-
         return (mangaController);
     }
 }

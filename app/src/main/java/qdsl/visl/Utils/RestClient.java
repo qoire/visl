@@ -53,8 +53,7 @@ public class RestClient {
      * rest service and prints it's response to Android Log with
      * labels "Praeda".
      */
-    public static JSONObject connect(String url)
-    {
+    public static JSONObject connect(String url) {
         Log.i("Praeda", "connect executes");
         HttpClient httpclient = new DefaultHttpClient();
 

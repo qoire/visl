@@ -1,6 +1,7 @@
 package qdsl.visl;
 
 import android.content.DialogInterface;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,24 +9,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import qdsl.visl.Utils.MangaEdenClient;
+
 
 public class MainActivity extends ActionBarActivity {
 
-    private AsyncTopRetrieverTask mangaRetrieverTask;
+    private MangaEdenClient mangaEdenClient;
     Button buttonRetrieveJson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mangaEdenClient = new MangaEdenClient();
 
         buttonRetrieveJson = (Button)findViewById(R.id.buttonRetrieveJson);
 
         buttonRetrieveJson.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                mangaRetrieverTask = new AsyncTopRetrieverTask();
-                mangaRetrieverTask.execute((int)0);
+                mangaEdenClient.loadMainJSON(MainActivity.this);
             }
         });
 

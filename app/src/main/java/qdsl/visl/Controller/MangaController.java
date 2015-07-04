@@ -1,5 +1,6 @@
 package qdsl.visl.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import qdsl.visl.Model.MangaSeries;
@@ -12,7 +13,7 @@ public class MangaController {
     Boolean hasSeries;
 
     public MangaController() {
-        mangaSeries = null;
+        mangaSeries = new ArrayList<MangaSeries>();
         hasSeries = false;
     }
 
